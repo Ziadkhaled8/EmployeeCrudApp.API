@@ -106,12 +106,12 @@ Base URL: `https://localhost:5001/api/employees` (or your deployed API base)
 
 | Method | Endpoint                  | Description                      |
 |--------|---------------------------|----------------------------------|
-| GET    | `/api/employees?page=1`   | Get paginated list of employees |
+| GET    | `/api/employees/{page},{pageSize}`   | Get paginated list of employees |
 | GET    | `/api/employees/{id}`     | Get an employee by ID           |
 | POST   | `/api/employees`          | Create a new employee           |
 | PUT    | `/api/employees/{id}`     | Update an existing employee     |
 | DELETE | `/api/employees/{id}`     | Delete an employee              |
-| GET    | `/api/employees/search?query=name&page=1` | Search employees by name |
+| GET    | `/api/employees/search/{search},{page},{pageSize}` | Search employees by name |
 
 All endpoints return a standard API response:
 ```json
