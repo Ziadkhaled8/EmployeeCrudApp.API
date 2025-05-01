@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <h3>{{ isEdit ? 'Update Employee' : 'Add New Employee' }}</h3>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName"
+                [class.is-invalid]="form.get('firstName')?.invalid && form.get('firstName')?.touched" />
+            <div class="invalid-feedback" *ngIf="form.get('firstName')?.errors?.['required']">
+                First name is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="form.get('firstName')?.errors?.['minlength']">
+                First name must be at least 2 characters long.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName"
+                [class.is-invalid]="form.get('lastName')?.invalid && form.get('lastName')?.touched" />
+            <div class="invalid-feedback" *ngIf="form.get('lastName')?.errors?.['required']">
+                Last name is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="form.get('lastName')?.errors?.['minlength']">
+                Last name must be at least 2 characters long.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email"
+                [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched" />
+            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['required']">
+                Email is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['email']">
+                Enter a valid email address.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Position</label>
+            <input type="text" class="form-control" formControlName="position"
+                [class.is-invalid]="form.get('position')?.invalid && form.get('position')?.touched" />
+            <div class="invalid-feedback" *ngIf="form.get('position')?.errors?.['required']">
+                Position is required.
+            </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            {{ isEdit ? 'Update' : 'Add' }}
+        </button>
+        <a class="btn btn-secondary ms-2" [routerLink]="['/']">Cancel</a>
+    </form>
+</div>

@@ -77,7 +77,7 @@ namespace EmployeeCrudApp.API.Controllers
                     await _employeeService.AddEmployee(employee);
                     response.StatusCode = HttpStatusCode.Created;
                     response.Result = "Employee created successfully";
-                    return CreatedAtAction(nameof(GetEmployeeById), new { email = employee.Email }, response);
+                    return Created();
                 }
                 else
                 {
