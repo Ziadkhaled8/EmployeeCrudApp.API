@@ -17,7 +17,7 @@ A full-stack employee management system with a .NET Core Web API backend and an 
 
 Make sure you have the following installed:
 
-- **.NET 8 SDK**  
+- **.NET 9 SDK**  
 - **MySQL** or your DB of choice  
 - **Node.js** (v18 or higher recommended)  
 - **Angular CLI**  
@@ -35,7 +35,7 @@ Make sure you have the following installed:
 
 2. **Configure your DB connection string:**
    - Go to `appsettings.json`
-   - Set your connection string in `DefaultConnection`
+   - Set your connection string in `con`
 
 3. **Run EF Core Migrations:**
    ```bash
@@ -44,9 +44,9 @@ Make sure you have the following installed:
 
 4. **Run the API:**
    ```bash
-   dotnet run
+   dotnet run --launch-profile "https"
    ```
-   The API will start on `https://localhost:5001` (or the port you’ve configured).
+   The API will start on `https://localhost:7240` (or the port you’ve configured).
 
 ---
 
@@ -64,7 +64,7 @@ Make sure you have the following installed:
 
 3. **Run the app:**
    ```bash
-   ng serve
+   npm start
    ```
 
 4. Open your browser at `http://localhost:4200`
