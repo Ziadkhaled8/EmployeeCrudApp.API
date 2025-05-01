@@ -11,7 +11,6 @@ A full-stack employee management system with a .NET Core Web API backend and an 
 /employee-management-frontend  ← Angular 19 (Bootstrap + Standalone Components)
 ```
 
----
 
 ## 🚀 Prerequisites
 
@@ -78,6 +77,53 @@ Make sure you have the following installed:
 - Pagination and search
 - Bootstrap responsive UI
 - Success/error handling and user feedback
+
+---
+
+---
+
+## 🔧 Backend Architecture
+
+The backend follows **Clean Architecture** principles with the following layers:
+
+- **Domain**: Contains core business models and interfaces.
+- **Application**: Holds business logic, DTOs, interfaces, and use cases.
+- **Infrastructure**: Deals with external concerns (e.g., MySQL database using EF Core).
+- **API (Presentation)**: ASP.NET Core Web API project that exposes endpoints and wires everything together.
+
+Benefits:
+- Separation of concerns
+- Testability
+- Scalability and maintainability
+
+---
+
+## 📡 API Endpoints
+
+Base URL: `https://localhost:5001/api/employees` (or your deployed API base)
+
+#### 🚀 Employee Endpoints
+
+| Method | Endpoint                  | Description                      |
+|--------|---------------------------|----------------------------------|
+| GET    | `/api/employees?page=1`   | Get paginated list of employees |
+| GET    | `/api/employees/{id}`     | Get an employee by ID           |
+| POST   | `/api/employees`          | Create a new employee           |
+| PUT    | `/api/employees/{id}`     | Update an existing employee     |
+| DELETE | `/api/employees/{id}`     | Delete an employee              |
+| GET    | `/api/employees/search?query=name&page=1` | Search employees by name |
+
+All endpoints return a standard API response:
+```json
+{
+  "statusCode": 200,
+  "isSuccess": true,
+  "error": null,
+  "result": {}
+}
+```
+
+Errors return `statusCode` 400+ with `isSuccess: false` and an `error` message.
 
 ---
 
